@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Header;
+use App\Models\HeaderTranslation;
 use Illuminate\Http\Request;
 
 class HeaderController extends Controller

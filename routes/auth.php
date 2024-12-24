@@ -70,6 +70,8 @@ Route::middleware('auth')->group(function () {
         Route::resource('settings', \App\Http\Controllers\Backend\SettingController::class);
 
         Route::resource('contacts', \App\Http\Controllers\Backend\ContactController::class);
+
+        Route::resource('headers', \App\Http\Controllers\Backend\HeaderController::class);
     });
 
 });

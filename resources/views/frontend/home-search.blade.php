@@ -1,5 +1,4 @@
 @extends('layouts.ap')
-
 @section('content')
 
         <div class="tf-page-title style-2">

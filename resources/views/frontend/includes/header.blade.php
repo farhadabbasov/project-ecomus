@@ -63,14 +63,18 @@
                 <div class="col-xl-8 tf-md-hidden">
                     <nav class="box-navigation text-center">
                         <ul class="box-nav-ul d-flex align-items-center justify-content-center gap-30">
+                            <div>
+                                <a href="">EN</a>
+                                <a href="">AZ</a>
+                            </div>
 
                             @foreach($menu_header as $head)
+                                @if(!$head->isShow)
                                     <li class="menu-item">
                                         <a href="{{$head->url}}" class="item-link">{{$head->title}}</a>
                                     </li>
+                                @endif
                             @endforeach
-
-
                             <li class="menu-item"><a href="https://themeforest.net/item/ecomus-ultimate-html5-template/53417990?s_rank=3" class="item-link">Buy now</a></li>
                         </ul>
                     </nav>

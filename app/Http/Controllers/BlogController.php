@@ -11,7 +11,7 @@ class BlogController extends Controller
 {
     public function blogList(){
 
-        $pages = Page::paginate();
+        $pages = Page::paginate(5);
 
         $categories = Category::all();
 

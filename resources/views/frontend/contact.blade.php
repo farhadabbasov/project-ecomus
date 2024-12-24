@@ -4,37 +4,42 @@
         <!-- page-title -->
         <div class="tf-page-title style-2">
             <div class="container-full">
-                <div class="heading text-center">Contact Us</div>
+                <div class="heading text-center">{{trans('contact.contact_us')}}</div>
             </div>
         </div>
         <!-- /page-title -->
         <!-- map -->
         <div class="w-100">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d317859.6089702069!2d-0.075949!3d51.508112!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760349331f38dd%3A0xa8bf49dde1d56467!2sTower%20of%20London!5e0!3m2!1sen!2sus!4v1719221598456!5m2!1sen!2sus" width="100%" height="646" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3038.8558785041982!2d49.8605446!3d40.3898867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d147ebe9949%3A0xbd1a03c2dc213e11!2sLuxen%20Plaza!5e0!3m2!1sru!2saz!4v1734005215390!5m2!1saz!2" width="100%" height="646" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <!-- /map -->
         <!-- form -->
+        {{-- Success Message --}}
+        @if(session('success'))
+            <div class="alert alert-success mb_15">
+                {{ session('success') }}
+            </div>
+        @endif
+        <div class="container">
         <section class="flat-spacing-21">
-            <div class="container">
                 <div class="tf-grid-layout gap30 lg-col-2">
                     <div class="tf-content-left">
-                        <h5 class="mb_20">Visit Our Store</h5>
+                        <h5 class="mb_20">{{trans('contact.visit_our_store')}}</h5>
                         <div class="mb_20">
-                            <p class="mb_15"><strong>Address</strong></p>
+                            <p class="mb_15"><strong>{{trans('contact.address')}}</strong></p>
                             <p>66 Mott St, New York, New York, Zip Code: 10006, AS</p>
                         </div>
                         <div class="mb_20">
-                            <p class="mb_15"><strong>Phone</strong></p>
+                            <p class="mb_15"><strong>{{trans('contact.phone')}}</strong></p>
                             <p>(623) 934-2400</p>
                         </div>
                         <div class="mb_20">
-                            <p class="mb_15"><strong>Email</strong></p>
+                            <p class="mb_15"><strong>{{trans('contact.email')}}</strong></p>
                             <p>EComposer@example.com</p>
                         </div>
                         <div class="mb_36">
-                            <p class="mb_15"><strong>Open Time</strong></p>
-                            <p class="mb_15">Our store has re-opened for shopping, </p>
-                            <p>exchange Every day 11am to 7pm</p>
+                            <p class="mb_15"><strong>{{trans('contact.message')}}</strong></p>
+                            <p class="mb_15">{{trans('contact.subject')}}</p>
                         </div>
                         <div>
                             <ul class="tf-social-icon d-flex gap-20 style-default">
@@ -47,8 +52,8 @@
                         </div>
                     </div>
                     <div class="tf-content-right">
-                        <h5 class="mb_20">Get in Touch</h5>
-                        <p class="mb_24">If you’ve got great products your making or looking to work with us then drop us a line.</p>
+                        <h5 class="mb_20">{{trans('contact.get_in_touch')}}</h5>
+                        <p class="mb_24">{{trans('contact.subject2')}}</p>
                         <div>
                             <form class="form-contact" id="contactform" action="{{ route('contact.store') }}" method="post">
                                 @csrf
@@ -73,7 +78,7 @@
                                     @enderror
                                 </div>
                                 <div class="send-wrap">
-                                    <button type="submit" class="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center">Send</button>
+                                    <button type="submit" class="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center">{{trans('contact.send   ')}}</button>
                                 </div>
                             </form>
                         </div>

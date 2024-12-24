@@ -18,17 +18,29 @@ class PageController extends Controller
     public function index()
     {
       //  $pages = Page::latest()->paginate(3);
-        $pages = Page::orderBy('id','desc');
+        $query = Page::with('category');
+
         if (request()->filled('search')) {
             $search = request('search');
-            $pages->where('title', 'LIKE', "%" . $search . "%");
-
+            $query->where('title', 'LIKE', "%" . $search . "%");
+            
         }
 
-        $pages = $pages->paginate(5);
+
+        if (request()->filled('category_id')) {
+            $category_id = request('category_id');
+            $query->where('category_id', $category_id);
+        }
 
 
-        return view('backend.pages.index', compact('pages'));
+
+        //$pages = $pages->paginate(5);
+        $pages = $query->orderBy('id','desc')->paginate(5);
+
+        $categories = Category::all();
+
+
+        return view('backend.pages.index', compact('pages', 'categories'));
     }
 
     /**

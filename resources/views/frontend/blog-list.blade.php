@@ -56,22 +56,11 @@
                             </div>
                         </div>
                         @endforeach
-
-                        {{$pages->links()}}
-{{--                        <ul class="wg-pagination">--}}
-{{--                            <li class="active">--}}
-{{--                                <div class="pagination-item">1</div>--}}
-{{--                            </li>--}}
-{{--                            <li>--}}
-{{--                                <a href="#" class="pagination-item animate-hover-btn">2</a>--}}
-{{--                            </li>--}}
-{{--                            <li>--}}
-{{--                                <a href="#" class="pagination-item animate-hover-btn">3</a>--}}
-{{--                            </li>--}}
-{{--                            <li>--}}
-{{--                                <a href="#" class="pagination-item animate-hover-btn"><i class="icon-arrow-right"></i></a>--}}
-{{--                            </li>--}}
-{{--                        </ul>--}}
+                            <div class="card-footer clearfix">
+                                <ul class="pagination pagination-sm m-0 float-right">
+                                    {!! $pages->links('pagination::bootstrap-4') !!}
+                                </ul>
+                            </div>
                     </div>
                     <aside class="tf-section-sidebar wrap-sidebar-mobile">
                         <div class="sidebar-item sidebar-categories">
@@ -144,45 +133,45 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="sidebar-item sidebar-tags">
-                            <div class="sidebar-title">Blog tags</div>
-                            <div class="sidebar-content">
-                                <ul class="tags-lists">
-                                    <li>
-                                        <a href="#" class="tags-item">Bags</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="tags-item">Fashion</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="sidebar-item sidebar-instagram">
-                            <div class="sidebar-title">Instagram</div>
-                            <div class="sidebar-content">
-                                <ul>
-                                    <li>
-                                        <img src="{{asset('/assets/images/shop/file/img-1.jpg')}}" alt="">
-                                    </li>
-                                    <li>
-                                        <img src="{{asset('/assets/images/shop/file/img-2.jpg')}}" alt="">
-                                    </li>
-                                    <li>
-                                        <img src="{{asset('/assets/images/shop/file/img-3.jpg')}}" alt="">
-                                    </li>
-                                    <li>
-                                        <img src="{{asset('/assets/images/shop/file/img-4.jpg')}}" alt="">
-                                    </li>
-                                    <li>
-                                        <img src="{{asset('/assets/images/shop/file/img-5.jpg')}}" alt="">
-                                    </li>
-                                    <li>
-                                        <img src="{{asset('/assets/images/shop/file/img-6.png')}}" alt="">
-                                    </li>
+{{--                        <div class="sidebar-item sidebar-tags">--}}
+{{--                            <div class="sidebar-title">Blog tags</div>--}}
+{{--                            <div class="sidebar-content">--}}
+{{--                                <ul class="tags-lists">--}}
+{{--                                    <li>--}}
+{{--                                        <a href="#" class="tags-item">Bags</a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="#" class="tags-item">Fashion</a>--}}
+{{--                                    </li>--}}
+{{--                                </ul>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="sidebar-item sidebar-instagram">--}}
+{{--                            <div class="sidebar-title">Instagram</div>--}}
+{{--                            <div class="sidebar-content">--}}
+{{--                                <ul>--}}
+{{--                                    <li>--}}
+{{--                                        <img src="{{asset('/assets/images/shop/file/img-1.jpg')}}" alt="">--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <img src="{{asset('/assets/images/shop/file/img-2.jpg')}}" alt="">--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <img src="{{asset('/assets/images/shop/file/img-3.jpg')}}" alt="">--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <img src="{{asset('/assets/images/shop/file/img-4.jpg')}}" alt="">--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <img src="{{asset('/assets/images/shop/file/img-5.jpg')}}" alt="">--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <img src="{{asset('/assets/images/shop/file/img-6.png')}}" alt="">--}}
+{{--                                    </li>--}}
 
-                                </ul>
-                            </div>
-                        </div>
+{{--                                </ul>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </aside>
                 </div>
             </div>

@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use App\Models\CategoryTranslation;
 use App\Models\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
@@ -18,14 +20,15 @@ class CategoryController extends Controller
     public function index()
     {
         //  $categories = Category::latest()->paginate(3);
-
         $categories = Category::orderBy('id', 'desc');
+
         if (request()->filled('search')) {
             $search = request('search');
             $categories->where('name', 'LIKE', "%" . $search . "%");
 
         }
-        $categories = $categories->paginate(10);
+
+        $categories =  $categories->paginate(10);
 
         return view('backend.categories.index', compact('categories'));
     }
@@ -43,8 +46,16 @@ class CategoryController extends Controller
      */
     public function store(CreateCategoryRequest $request)
     {
-        $validatedData = $request->validated();
-        Category::create($validatedData);
+        $data = $request->all();
+
+
+        $category = Category::create($data);
+
+        CategoryTranslation::create([
+            'category_id' => $category->id,
+            'name' => $request->name,
+            'locale' => App::getLocale(),
+        ]);
 
         return redirect()->route('admin.categories.index')->with('success', 'Category created successfully.');
     }
@@ -55,17 +66,20 @@ class CategoryController extends Controller
     public function show(string $id)
     {
         $previousUrl = url()->previous();
-        $category = Category::with('pages')->findOrFail($id);  // Eager load pages
+        $category = Category::with('pages', 'translation')->findOrFail($id);  // Eager load pages
         return view('backend.categories.show', compact('category', 'previousUrl'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $categoryId,Request $request)
     {
-        $category = Category::findOrFail($id);
-        return view('backend.categories.form', compact('category'));
+        $language = $request->language;
+        $category = Category::with('translation')->find($categoryId);
+        $translatedObject = $category->translate($language);
+
+        return view('backend.categories.edit', compact('category','translatedObject','language'));
     }
 
     /**
@@ -73,13 +87,9 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, string $id)
     {
-        $validatedData = $request->validated();
+        $data = $request->all();
 
-        // Find the category by ID
-        $category = Category::findOrFail($id);
-
-        // Update the page with the validated data
-        $category->update($validatedData);
+        CategoryTranslation::updateOrCreate(['category_id' => $id,'locale'=>$data['language']],['name'=>$data['name']]);
 
         // Redirect back with a success message
         return redirect()->route('admin.categories.index')->with('success', 'Category updated successfully.');

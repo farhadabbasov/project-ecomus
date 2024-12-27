@@ -16,6 +16,7 @@ class AboutTranslation extends Model
         'title11','title12','title13'];
 
 
+
     public function about(){
         return $this->belongsTo(About::class);
     }

@@ -29,7 +29,6 @@
                                         <td>{{(($abouts->currentPage()-1)*10)+$loop->iteration}}</td>
                                         <td><a href="{{route('admin.abouts.update',['about'=>$about->id])}}" class="">{{$about->translation->title}}</a></td>
                                         <td>
-
                                             <a href="{{route('admin.abouts.edit',['about'=>$about->id,'language'=>'az'])}}" class="btn btn-primary btn-sm">AZ</a>
                                             <a href="{{route('admin.abouts.edit',['about'=>$about->id,'language'=>'en'])}}" class="btn btn-primary btn-sm">EN</a>
 

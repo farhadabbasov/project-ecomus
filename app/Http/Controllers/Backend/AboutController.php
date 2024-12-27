@@ -15,11 +15,7 @@ class AboutController extends Controller
      */
     public function index()
     {
-        $abouts = About::with(['translation' => function ($query) {
-            $query->where('locale', app()->getLocale());
-        }])
-            ->orderBy('id', 'desc')
-            ->paginate(5);
+        $abouts = About::orderBy('id', 'desc')->paginate(5);
 
         return view('backend.abouts.index', compact('abouts'));
     }
@@ -29,7 +25,7 @@ class AboutController extends Controller
      */
     public function create()
     {
-        return redirect('backend.abouts.form');
+        return view('backend.abouts.form');
     }
 
     /**

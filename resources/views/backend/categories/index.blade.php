@@ -28,7 +28,10 @@
                                         <td>{{(($categories->currentPage()-1)*10)+$loop->iteration}}</td>
                                         <td><a href="{{route('admin.categories.update',['category'=>$category->id])}}" class="">{{$category->name}}</a></td>
                                         <td>
-                                            <a href="{{ route('admin.categories.edit', ['category' => $category->id]) }}" class="btn btn-primary btn-sm">Editlə</a>
+                                            <a href="{{route('admin.categories.edit',['category'=>$category->id,'language'=>'az'])}}" class="btn btn-primary btn-sm">AZ</a>
+                                            <a href="{{route('admin.categories.edit',['category'=>$category->id,'language'=>'en'])}}" class="btn btn-primary btn-sm">EN</a>
+
+{{--                                            <a href="{{ route('admin.categories.edit', ['category' => $category->id]) }}" class="btn btn-primary btn-sm">Editlə</a>--}}
 
                                             <form action="{{ route('admin.categories.destroy', ['category' => $category->id]) }}" method="POST" style="display: inline;">
                                                 @csrf

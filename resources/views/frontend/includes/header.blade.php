@@ -64,8 +64,8 @@
                     <nav class="box-navigation text-center">
                         <ul class="box-nav-ul d-flex align-items-center justify-content-center gap-30">
                             <div>
-                                <a href="/en">EN</a>
-                                <a href="/az">AZ</a>
+                                <a href="{{ route(Route::currentRouteName(), array_merge(request()->route()->parameters(), ['locale' => 'en'])) }}">EN</a>
+                                <a href="{{ route(Route::currentRouteName(), array_merge(request()->route()->parameters(), ['locale' => 'az'])) }}">AZ</a>
                             </div>
 
                             @foreach($menu_header as $head)

@@ -11,7 +11,7 @@ class BlogDetailController extends Controller
 
         $page = Page::findOrFail($id)->translate($locale);
         $pages = Page::limit(6)->get();
-dd($page);
+
         return view('frontend.blog-detail',compact('page','pages'));
     }
 }

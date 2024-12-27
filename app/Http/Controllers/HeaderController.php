@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class HeaderController extends Controller
 {
-    public function index()
+    public function index($locale)
     {
         $header = Header::all();
 

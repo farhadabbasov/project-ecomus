@@ -72,6 +72,8 @@ Route::middleware('auth')->group(function () {
         Route::resource('contacts', \App\Http\Controllers\Backend\ContactController::class);
 
         Route::resource('headers', \App\Http\Controllers\Backend\HeaderController::class);
+
+        Route::resource('abouts', \App\Http\Controllers\Backend\AboutController::class);
     });
 
 });

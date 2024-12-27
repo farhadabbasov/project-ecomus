@@ -7,7 +7,7 @@
             <img class="lazyload" src="{{asset($formatted_gallery_items['three_boys']['path'])}}" data-src="{{asset($formatted_gallery_items['three_boys']['path'])}}" alt="image-collection">
             <div class="box-content text-center">
                 <div class="container">
-                    <div class="text text-white">{!! $about['title'] ?? '' !!}</div>
+                    <div class="text text-white">{{$about->translate()?->title}}</div>
                 </div>
             </div>
         </div>

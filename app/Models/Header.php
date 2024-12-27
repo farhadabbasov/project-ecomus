@@ -14,7 +14,7 @@ class Header extends Model
    // protected $table = 'header';
     protected $fillable = ['url', 'isShow'];
 
-    protected $translatedAttributes = ['title'];
+    public $translatedAttributes = ['title'];
     protected $with = ['translation'];
 
     public function translation()

@@ -56,7 +56,7 @@
                     </a>
                 </div>
                 <div class="col-xl-2 col-md-4 col-6">
-                    <a href="{{route('home')}}" class="">
+                    <a href="{{route('home',['locale'=>app()->getLocale()])}}" class="">
                         <img src="{{$allSettings['ecomus_logo']}}" alt="logo" class="logo">
                     </a>
                 </div>
@@ -64,14 +64,14 @@
                     <nav class="box-navigation text-center">
                         <ul class="box-nav-ul d-flex align-items-center justify-content-center gap-30">
                             <div>
-                                <a href="">EN</a>
-                                <a href="">AZ</a>
+                                <a href="/en">EN</a>
+                                <a href="/az">AZ</a>
                             </div>
 
                             @foreach($menu_header as $head)
                                 @if(!$head->isShow)
                                     <li class="menu-item">
-                                        <a href="{{$head->url}}" class="item-link">{{$head->title}}</a>
+                                        <a href="{{url(app()->getLocale() . $head->url)}}" class="item-link">{{$head->title}}</a>
                                     </li>
                                 @endif
                             @endforeach

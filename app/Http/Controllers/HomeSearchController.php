@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class HomeSearchController extends Controller
 {
-    public function homeSearch()
+    public function homeSearch($locale)
     {
         return view('frontend.home-search');
     }

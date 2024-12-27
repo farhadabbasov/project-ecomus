@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use Astrotomic\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class HomeSearch extends Model
 {
-
+    use HasFactory,Translatable;
 }

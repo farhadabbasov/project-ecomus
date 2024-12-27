@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class Contact1Controller extends Controller
 {
-    public function contact1()
+    public function contact1($locale)
     {
         return view('frontend.contact');
     }

@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Gallery;
+use Illuminate\Support\Facades\App;
 
 class AboutController extends Controller
 {
-    public function about()
+    public function about($locale)
     {
 
         $about = About::find(1);

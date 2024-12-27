@@ -75,6 +75,12 @@
                                 <p>Headers</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.abouts.index') }}" class="nav-link {{ request()->routeIs('admin.abouts.index') ? 'active' : '' }}">
+                                <i class="nav-icon bi bi-circle"></i>
+                                <p>Abouts</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    public function blogList(){
+    public function blogList($locale){
 
         $pages = Page::paginate(5);
 

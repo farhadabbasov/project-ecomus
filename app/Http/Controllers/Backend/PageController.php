@@ -7,7 +7,9 @@ use App\Http\Requests\CreatePageRequest;
 use App\Http\Requests\UpdatePageRequest;
 use App\Models\Category;
 use App\Models\Page;
+use App\Models\PageTranslation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
 
 class PageController extends Controller
@@ -23,7 +25,7 @@ class PageController extends Controller
         if (request()->filled('search')) {
             $search = request('search');
             $query->where('title', 'LIKE', "%" . $search . "%");
-            
+
         }
 
 
@@ -57,10 +59,18 @@ class PageController extends Controller
     public function store(CreatePageRequest $request)
     {
         $validatedData = $request->validated();
+        //$data = $request->all();
 
         $image = Storage::url(Storage::disk('public')->put('pages', $request->file('image')));
         $validatedData['image'] = $image;
-        Page::create($validatedData);
+        $page = Page::create($validatedData);
+
+        PageTranslation::create([
+            'page_id' => $page->id,
+            'title' => $request->title,
+            'description'=>$request->description,
+            'locale' => App::getLocale(),
+        ]);
 
         return redirect()->route('admin.pages.index')->with('success', 'Page created successfully.');
     }
@@ -70,7 +80,7 @@ class PageController extends Controller
      */
     public function show(string $id)
     {
-        $page = Page::findOrFail($id);
+        $page = Page::with( 'translation')->findOrFail($id);
         $previousUrl = url()->previous();
         return view('backend.pages.show', compact('page' , 'previousUrl'));
     }
@@ -78,10 +88,12 @@ class PageController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $pageId,Request $request)
     {
-        $page = Page::findOrFail($id);
-        return view('backend.pages.form', compact('page'));
+        $language = $request->language;
+        $page = Page::with('translation')->findOrFail($pageId);
+        $translatedObject = $page->translate($language);
+        return view('backend.pages.edit',compact('page','translatedObject','language'));
     }
 
     /**
@@ -90,10 +102,13 @@ class PageController extends Controller
     public function update(UpdatePageRequest $request, string $id)
     {
         // Validate the incoming data
-        $validatedData = $request->validated();
+        $data = $request->all();
+        //$validatedData = $request->validated();
 
         // Find the page by ID
         $page = Page::findOrFail($id);
+
+        PageTranslation::updateOrCreate(['page_id' => $id,'locale'=>$data['language']],['title'=>$data['title'],'description'=>$data['description']]);
 
         // Check if a new image is uploaded
         if ($request->hasFile('image')) {

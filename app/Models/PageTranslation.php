@@ -12,6 +12,7 @@ class PageTranslation extends Model
         'title',
         'page_id',
         'locale',
+        'description',
     ];
 
     public function page()

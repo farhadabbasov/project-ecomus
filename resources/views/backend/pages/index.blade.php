@@ -47,6 +47,8 @@
                                     <td>{{(($pages->currentPage()-1)*5)+$loop->iteration}}</td>
                                     <td><a href="{{route('admin.pages.update',['page'=>$page->id])}}" class="">{{$page->title}}</a></td>
                                     <td>
+                                        <a href="{{route('admin.pages.edit',['page'=>$page->id,'language'=>'az'])}}" class="btn btn-primary btn-sm">AZ</a>
+                                        <a href="{{route('admin.pages.edit',['page'=>$page->id,'language'=>'en'])}}" class="btn btn-primary btn-sm">EN</a>
                                         <a href="{{ route('admin.pages.edit', ['page' => $page->id]) }}" class="btn btn-primary btn-sm">Editlə</a>
 
                                         <form action="{{ route('admin.pages.destroy', ['page' => $page->id]) }}" method="POST" style="display: inline;">

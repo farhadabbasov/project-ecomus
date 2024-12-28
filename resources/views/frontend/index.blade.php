@@ -11,9 +11,9 @@
                             <img src="{{asset('/assets/images/slider/fashion-slideshow-01.jpg')}}" alt="fashion-slideshow">
                             <div class="box-content">
                                 <div class="container">
-                                    <h1 class="fade-item fade-item-1">{{trans('index.glamorous')}}<br>{{trans('index.glam')}}</h1>
-                                    <p class="fade-item fade-item-2">{{trans('index.message')}}</p>
-                                    <a href="shop-default.html" class="fade-item fade-item-3 tf-btn btn-fill animate-hover-btn btn-xl radius-3"><span>{{trans('index.shop_collection')}}</span><i class="icon icon-arrow-right"></i></a>
+                                    <h1 class="fade-item fade-item-1">Glamorous<br>Glam</h1>
+                                    <p class="fade-item fade-item-2">Message</p>
+                                    <a href="shop-default.html" class="fade-item fade-item-3 tf-btn btn-fill animate-hover-btn btn-xl radius-3"><span>Shop Collection</span><i class="icon icon-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>

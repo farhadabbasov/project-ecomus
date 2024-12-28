@@ -39,7 +39,7 @@ class AboutController extends Controller
         $about = About::create($data);
 
         AboutTranslation::create([
-            'header_id' => $about->id,
+            'about_id' => $about->id,
             'title' => $request->title,
             'locale' => App::getLocale(),
         ]);

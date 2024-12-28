@@ -2,16 +2,16 @@
 @section('content')
     <div class="container">
         <h1>Edit Page</h1>
-        <form action="{{ route('admin.pages.update', $page->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.pages.update', ['page'=>$page?->id,'language'=>$language]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" name="title" id="title" class="form-control" value="{{ old('title', $page->title) }}" required>
+                <input type="text" name="title" id="title" class="form-control" value="{{ old('title', $translatedObject?->title) }}" required>
             </div>
             <div class="mb-3">
                 <label for="content" class="form-label">Description</label>
-                <textarea name="description" id="description" rows="5" class="form-control" required>{{ old('description', $page->description) }}</textarea>
+                <textarea name="description" id="description" rows="5" class="form-control" required>{{ old('description', $translatedObject?->description) }}</textarea>
             </div>
             <div class="mb-3">
                 <label for="title" class="form-label">Categories</label>

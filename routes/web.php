@@ -33,7 +33,6 @@ Route::group(['prefix' => '{locale}'], function (){
     Route::get('/homesearch', [HomeSearchController::class, 'homeSearch'])->name('home-search');
     Route::get('/brands', [BrandController::class, 'brands'])->name('brands');
     Route::get('/contact', [Contact1Controller::class, 'contact1'])->name('contact.create');
-    Route::post('/contact', [Contact1Controller::class, 'store'])->name('contact.store');
     Route::get('/contact-2', [Contact2Controller::class, 'contact2'])->name('contact-2');
 });
-
+Route::post('/contact', [Contact1Controller::class, 'store'])->name('contact.store');

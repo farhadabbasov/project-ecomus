@@ -4,7 +4,7 @@
         <!-- page-title -->
         <div class="tf-page-title style-2">
             <div class="container-full">
-                <div class="heading text-center">{{trans('contact.contact_us')}}</div>
+                <div class="heading text-center">Contact</div>
             </div>
         </div>
         <!-- /page-title -->
@@ -24,22 +24,22 @@
         <section class="flat-spacing-21">
                 <div class="tf-grid-layout gap30 lg-col-2">
                     <div class="tf-content-left">
-                        <h5 class="mb_20">{{trans('contact.visit_our_store')}}</h5>
+                        <h5 class="mb_20">Visit Out Store</h5>
                         <div class="mb_20">
-                            <p class="mb_15"><strong>{{trans('contact.address')}}</strong></p>
+                            <p class="mb_15"><strong>Adress</strong></p>
                             <p>66 Mott St, New York, New York, Zip Code: 10006, AS</p>
                         </div>
                         <div class="mb_20">
-                            <p class="mb_15"><strong>{{trans('contact.phone')}}</strong></p>
+                            <p class="mb_15"><strong>Phone</strong></p>
                             <p>(623) 934-2400</p>
                         </div>
                         <div class="mb_20">
-                            <p class="mb_15"><strong>{{trans('contact.email')}}</strong></p>
+                            <p class="mb_15"><strong>Email</strong></p>
                             <p>EComposer@example.com</p>
                         </div>
                         <div class="mb_36">
-                            <p class="mb_15"><strong>{{trans('contact.message')}}</strong></p>
-                            <p class="mb_15">{{trans('contact.subject')}}</p>
+                            <p class="mb_15"><strong>Message</strong></p>
+                            <p class="mb_15">Subject</p>
                         </div>
                         <div>
                             <ul class="tf-social-icon d-flex gap-20 style-default">
@@ -52,8 +52,8 @@
                         </div>
                     </div>
                     <div class="tf-content-right">
-                        <h5 class="mb_20">{{trans('contact.get_in_touch')}}</h5>
-                        <p class="mb_24">{{trans('contact.subject2')}}</p>
+                        <h5 class="mb_20">Get in Touch</h5>
+                        <p class="mb_24"></p>
                         <div>
                             <form class="form-contact" id="contactform" action="{{ route('contact.store') }}" method="post">
                                 @csrf
@@ -78,7 +78,7 @@
                                     @enderror
                                 </div>
                                 <div class="send-wrap">
-                                    <button type="submit" class="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center">{{trans('contact.send   ')}}</button>
+                                    <button type="submit" class="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center">Send</button>
                                 </div>
                             </form>
                         </div>

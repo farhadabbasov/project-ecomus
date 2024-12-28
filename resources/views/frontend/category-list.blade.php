@@ -42,16 +42,18 @@
                             </div>
                             <div class="article-content">
                                 <div class="article-label">
-                                    <a href="{{ route('category.detail', $page->category->id) }}" class="tf-btn btn-sm radius-3 btn-fill animate-hover-btn">{{$page->category->name}}</a>
+                                    <a href="{{ route('category.detail', ['locale' => app()->getLocale(), 'id' => $page->category->id]) }}"
+                                       class="tf-btn btn-sm radius-3 btn-fill animate-hover-btn">{{$page->category->name}}</a>
                                 </div>
                                 <div class="article-title">
-                                    <a href="{{route('page-detail', $page->id)}}" class="">{{$page->title}}</a>
+                                    <a href="{{ route('page-detail', ['locale' => app()->getLocale(), 'id' => $page->id]) }}" class="">{{$page->title}}</a>
                                 </div>
                                 <div class="desc">
                                     {{$page->description}}
                                 </div>
                                 <div class="article-btn">
-                                    <a href="{{route('page-detail',['id'=>$page->id])}}" class="tf-btn btn-line fw-6">Read more<i class="icon icon-arrow1-top-left"></i></a>
+                                    <a href="{{ route('page-detail', ['locale' => app()->getLocale(), 'id' => $page->id]) }}"
+                                       class="tf-btn btn-line fw-6">Read more<i class="icon icon-arrow1-top-left"></i></a>
                                 </div>
                             </div>
                         </div>

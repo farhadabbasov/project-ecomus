@@ -36,7 +36,7 @@
 {{--                            </div>--}}
 {{--                        </div>--}}
                         <div class="desc">
-                            {{$page->description}}
+                            {{$page->translate()->description}}
                         </div>
                         <div class="bot d-flex justify-content-between flex-wrap align-items-center">
                             <ul class="tags-lists">
@@ -93,7 +93,7 @@
     <section class="mb_30">
         <div class="container">
             <div class="flat-title">
-                <h5 class="">{{$page->title}}</h5>
+                <h5 class="">{{$page->translate()->title}}</h5>
             </div>
             <div class="hover-sw-nav view-default hover-sw-5">
                 <div dir="ltr" class="swiper tf-sw-recent" data-preview="3" data-tablet="2" data-mobile="1" data-space-lg="30" data-space-md="30" data-space="15" data-pagination="1" data-pagination-md="1" data-pagination-lg="1">
@@ -103,19 +103,22 @@
                         <div class="swiper-slide" lazy="true">
                             <div class="blog-article-item">
                                 <div class="article-thumb radius-10">
-                                    <a href="{{route('page-detail',['id'=>$page->id])}}">
+                                    <a href="{{ route('page-detail', ['locale' => app()->getLocale(), 'id' => $page->id]) }}">
                                         <img class="lazyload" data-src={{$page->image}} src={{$page->image}} alt="img-blog">
                                     </a>
                                     <div class="article-label">
-                                        <a href="{{route('page-detail',['id'=>$page->id])}}" class="tf-btn style-2 btn-fill radius-3 animate-hover-btn">{{$page->category->name}}</a>
+                                        <a href="{{ route('page-detail', ['locale' => app()->getLocale(), 'id' => $page->id]) }}"
+                                           class="tf-btn style-2 btn-fill radius-3 animate-hover-btn">{{$page->category->translate()->name}}</a>
                                     </div>
                                 </div>
                                 <div class="article-content">
                                     <div class="article-title">
-                                        <a href="{{route('page-detail',['id'=>$page->id])}}" class="">{{$page->description}}</a>
+                                        <a href="{{ route('page-detail', ['locale' => app()->getLocale(), 'id' => $page->id]) }}"
+                                           class="">{{$page->translate()->description}}</a>
                                     </div>
                                     <div class="article-btn">
-                                        <a href="{{route('page-detail',['id'=>$page->id])}}" class="tf-btn btn-line fw-6">Read more<i class="icon icon-arrow1-top-left"></i></a>
+                                        <a href="{{ route('page-detail', ['locale' => app()->getLocale(), 'id' => $page->id]) }}"
+                                           class="tf-btn btn-line fw-6">Read more<i class="icon icon-arrow1-top-left"></i></a>
                                     </div>
                                 </div>
                             </div>
